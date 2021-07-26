@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const io = require("socket.io")(http, {
   cors: {
-    origin: "https://conversation-messenger-clone-321009.appspot.com/",
+    origin: "https://messenger-clone-321009.et.r.appspot.com/",
     methods: ["GET", "POST"],
   },
 });
@@ -34,7 +34,7 @@ db.on("error", (err) => console.log(err));
 db.once("open", () => console.log("Connected to MongoDB"));
 
 // Routers
-app.use("/conversation", ConversationRoute);
+app.use("/api/conversation", ConversationRoute);
 
 // Socket
 io.of("/chat").on("connection", SocketController.handleChatSocket);

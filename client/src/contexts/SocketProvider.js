@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import io from "socket.io-client";
 import { useUserContext } from "./UserProvider";
+import { CONVERSATION_BASE_URL } from "../config";
+
 const SocketContext = React.createContext();
 
 export function useSocket() {
@@ -17,14 +19,11 @@ export function SocketProvider({ children }) {
   const { user } = useUserContext();
   const userId = user._id;
   useEffect(() => {
-    var newChatSocket = io(
-      "https://conversation-messenger-clone-321009.appspot.com/chat",
-      {
-        query: {
-          userId,
-        },
-      }
-    );
+    var newChatSocket = io(`${CONVERSATION_BASE_URL}/chat`, {
+      query: {
+        userId,
+      },
+    });
     setChatSocket(newChatSocket);
     return () => {
       if (newChatSocket) newChatSocket.close();
@@ -34,14 +33,11 @@ export function SocketProvider({ children }) {
   useEffect(() => {
     if (isInitVideoCallSocket) {
       console.log("init video call socket");
-      var newVideoCallSocket = io(
-        "https://conversation-messenger-clone-321009.appspot.com/video-call",
-        {
-          query: {
-            userId,
-          },
-        }
-      );
+      var newVideoCallSocket = io(`${CONVERSATION_BASE_URL}/video-call`, {
+        query: {
+          userId,
+        },
+      });
       setVideoCallSocket(newVideoCallSocket);
     }
     return () => {
