@@ -17,6 +17,7 @@ const SocketController = require("./controllers/SocketController");
 const ConversationRoute = require("./routes/ConversationRoute");
 
 // setup options
+app.set("trust proxy", true);
 app.use(express.static(path.join(__dirname, "..", "client", "build")));
 app.use(express.urlencoded({ limit: "10mb", extended: false }));
 app.use(express.json());

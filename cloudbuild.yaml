@@ -6,6 +6,7 @@ steps:
         "deploy",
         "--project=messenger-clone-321009",
         "--version=$SHORT_SHA",
+        "dispatch.yaml",
         "./client/client.yaml",
         "./auth/auth.yaml",
         "./conversation/conversation.yaml",
