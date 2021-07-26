@@ -47,6 +47,7 @@ app.use(passport.session());
 app.use("/auth", AuthRouter);
 app.use("/user", UserRouter);
 
-app.listen(3001, () => {
-  console.log("Auth server is listening on port " + 3001);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log("Auth server is listening on port " + PORT);
 });
