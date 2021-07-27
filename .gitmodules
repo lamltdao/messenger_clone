@@ -1,0 +1,9 @@
+[submodule "messenger_clone_client"]
+	path = messenger_clone_client
+	url = git@github.com:lamltdao/messenger_clone_client.git
+[submodule "messenger_clone_auth_server"]
+	path = messenger_clone_auth_server
+	url = git@github.com:lamltdao/messenger_clone_auth_server.git
+[submodule "messenger_clone_conversation_server"]
+	path = messenger_clone_conversation_server
+	url = git@github.com:lamltdao/messenger_clone_conversation_server.git
